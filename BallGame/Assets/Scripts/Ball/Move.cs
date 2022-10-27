@@ -6,39 +6,20 @@ using UnityEngine.UIElements;
 
 public class Move : MonoBehaviour
 {
-    bool downArrowPressed = false;
-    bool upArrowPressed = false;
+    Vector2 pos;
     public float speed = 7f;
-    float maxY = 4;
-    float minY = -4;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            downArrowPressed = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.DownArrow))
-        {
-            downArrowPressed = false;
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            upArrowPressed = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            upArrowPressed = false;
-        }
+        pos = transform.position;
+        //If user presses upArrow or W, direction will be 1
+        //If user presses downArrow or S, direction will be -1
+        //Otherwise 0
+        float direction = Input.GetAxis("Vertical");
 
-        if (downArrowPressed && transform.position.y > minY)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, transform.position.z);
-        }
-        else if (upArrowPressed && transform.position.y < maxY)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
-        }
+        pos.y += direction * Time.deltaTime * speed;
+        pos.y = Mathf.Clamp(pos.y, -3.75f, 3.75f);  //Ensures that pos.y stays inbetween -3.75 and 3.75
+        transform.position = pos;
     }
 
 
