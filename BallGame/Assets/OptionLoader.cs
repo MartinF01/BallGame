@@ -15,6 +15,6 @@ public class OptionLoader : MonoBehaviour
 
     void ShowOptions()
     {
-        SceneLoader.LoadScene("Options");
+        OptionMenu.ShowMenu();
     }
 }

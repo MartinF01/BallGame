@@ -11,9 +11,8 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         pauseMenu = GetComponent<Canvas>();
-        
+        pauseMenu.enabled = false;
     }
     public static void ShowMenu()
     {
@@ -21,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     }
     public static void HideMenu()
     {
-        pauseMenu.enabled = true;
+        pauseMenu.enabled = false;
     }
 
     public void Resume()
@@ -30,8 +29,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void ShowOptions()
     {
-        GameManagement.PauseOrResumeGame();
-        SceneLoader.LoadScene("Options");
+        HideMenu();
+        OptionMenu.ShowMenu();
     }
     public void ReturnToMainMenu()
     {

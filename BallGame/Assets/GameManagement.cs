@@ -13,7 +13,7 @@ public class GameManagement : MonoBehaviour
     }
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex >= 4 && Input.GetKeyDown(KeyCode.Escape))
+        if (SceneManager.GetActiveScene().buildIndex >= 3 && Input.GetKeyDown(KeyCode.Escape))
         {
             PauseOrResumeGame();
         }
@@ -23,10 +23,12 @@ public class GameManagement : MonoBehaviour
         IsPaused = !IsPaused;
         if (IsPaused)
         {
+            Time.timeScale = 0f;
             PauseMenu.ShowMenu();
         }
         else
         {
+            Time.timeScale = 1f;
             PauseMenu.HideMenu();
         }
     }
