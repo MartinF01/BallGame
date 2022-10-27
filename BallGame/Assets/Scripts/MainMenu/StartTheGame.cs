@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartTheGame : MonoBehaviour
 {
-    public void LoadSceneColorSelection()
+    Button startButton;
+    private void Start()
     {
-        SceneManager.LoadScene(1);
+        startButton = GetComponent<Button>();
+        startButton.onClick.AddListener(StartGame);
     }
-
-    public void StartIt()
+    void StartGame()
     {
-        SceneManager.LoadScene(2);
+        SceneLoader.LoadScene("LevelMenu");
     }
 }

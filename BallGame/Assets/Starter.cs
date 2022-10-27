@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BackToMainMenu : MonoBehaviour
+public class Starter : MonoBehaviour
 {
-    public void ReturnToMainMenu()
+    // Start is called before the first frame update
+    void Start()
     {
         SceneManager.LoadScene(1);
     }
+
+
 }
