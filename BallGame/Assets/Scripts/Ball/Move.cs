@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class Move : MonoBehaviour
 {
-    Vector2 pos;
+    Vector3 pos;
     public float speed = 7f;
     // Update is called once per frame
     void Update()
